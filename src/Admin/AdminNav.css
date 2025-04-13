@@ -1,0 +1,32 @@
+.adminNav {
+    width: 10rem; 
+    overflow: hidden;
+}
+
+.adminNav nav {
+    position: sticky; /* Makes the nav sticky */
+    top: 0; /* Stick to the top of the page */
+    height: 100vh;
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.adminNav nav .container-fluid {
+    position: absolute;
+    top: 30px;
+    align-items: center;
+    padding-left: 0px;
+}
+
+.adminNav nav .container-fluid ul li {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.active-item {
+    background-color: #88919b;
+    width: 10rem;
+    overflow: hidden;
+    margin: 0;
+    color: white;
+    border-radius: 5px;
+}

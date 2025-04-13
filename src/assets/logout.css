@@ -1,0 +1,53 @@
+/* General Button Styling */
+button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Button Hover Effect */
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Disable Button Styling */
+button:disabled {
+    background-color: #ccc !important;
+    border-color: #ccc !important;
+    cursor: not-allowed;
+}
+
+/* Button Disabled Text */
+button:disabled {
+    color: #999;
+}
+
+/* Success/Warning/Primary Buttons */
+button.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+button.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+button.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+button.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+/* Full-width Button */
+button.w-100 {
+    width: 100%;
+}

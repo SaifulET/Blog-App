@@ -1,0 +1,25 @@
+
+import Navbar from "../component/Navbar";
+import Slider from "../component/Slider";
+
+import HomeBlog from "../component/HomeBlog";
+import VideoPlayer from "../component/VideoPlayer";
+import Footer from "../component/Footer";
+
+const Home = () => {
+    return (
+        <div>
+            <Navbar></Navbar>
+            
+            <Slider></Slider>
+
+            <HomeBlog></HomeBlog>
+
+            <VideoPlayer></VideoPlayer>
+
+            <Footer></Footer>
+        </div>
+    );
+};
+
+export default Home;

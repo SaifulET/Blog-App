@@ -1,0 +1,39 @@
+.userTable{
+    width:60%;
+    margin:50px auto;
+    background-color: #fff;
+    padding:50px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.65);
+}
+.userTable table{
+    width:100%;
+    margin-top: 30px;
+}
+.userTable table thead th{
+    background-color: darkcyan;
+    /* background-color: rgb(52, 132, 132); */
+    color: #fff;
+}
+.userTable table tbody tr{
+    padding:10px;
+    text-align: center;
+    vertical-align: middle;
+}
+.actionButton button{
+    margin:0 10px;
+}
+.noUser{
+    text-align: center;
+}
+.dflex{
+    display: flex;
+    justify-content: space-between;
+}
+.message-column {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-overflow: ellipsis;
+    max-width: 250px;
+  }

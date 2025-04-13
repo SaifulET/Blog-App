@@ -1,0 +1,106 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    padding-top: 50px;
+}
+
+/* Login Container */
+.login-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Heading Style */
+.login-heading {
+    font-size: 28px;
+    color: #333;
+}
+
+/* Card Styling */
+.login-card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields Styling */
+.login-input {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Form Labels */
+.login-label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Button Styles */
+.login-btn {
+    width: 48%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Primary Button */
+.login-btn.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.login-btn.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Secondary Button */
+.login-btn.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.login-btn.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Error message */
+.login-error {
+    font-size: 14px;
+    color: #e74a3b;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-card {
+        padding: 20px;
+    }
+
+    .login-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .d-flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .d-flex .login-btn {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-heading {
+        font-size: 24px;
+    }
+
+    .login-error {
+        font-size: 12px;
+    }
+}

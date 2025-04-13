@@ -1,0 +1,50 @@
+.card-hover {
+    transition: all 0.4s ease-in-out;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-hover:hover {
+    background: linear-gradient(to bottom right, #007bff, #6610f2); /* Blue to purple */
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    color: #fff;
+  }
+  
+  .card-hover h5,
+  .card-hover p {
+    transition: color 0.3s ease;
+  }
+  
+  .card-hover:hover h5 {
+    color: #ffe066; /* A nice accent color */
+  }
+  
+  .card-hover:hover p {
+    color: #94eb4d;
+  }
+  
+  
+  .card-hover .icon-wrapper {
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+  
+  .card-hover:hover .icon-wrapper {
+    transform: scale(1.8);
+    filter: drop-shadow(0 0 8px #fff);
+  }
+  .description.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* show only 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: max-height 0.3s ease;
+  }
+  
+  .description.expanded {
+    display: block;
+  }
+  

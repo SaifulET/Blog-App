@@ -1,0 +1,60 @@
+.heading{
+  text-align: center;
+  color:rgb(23, 18, 116);
+  text-shadow:
+  0 0 5px #91b9b4,
+  0 0 10px #7a928f,
+  0 0 20px #b4bdbe,
+  0 0 40px #dbe4e7;
+  font-weight: bold;
+}
+  
+  .video-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 20px;
+  }
+  
+  /* Responsive Video Card */
+  .video-card {
+    flex: 1 1 300px; /* Minimum 300px, will grow */
+    max-width: 100%;
+    aspect-ratio: 16 / 12;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background-color: #111;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .video-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* ReactPlayer container */
+  .video-thumb {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 16px;
+  }
+  
+  /* Video Title Overlay */
+  .video-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+  }
+  
