@@ -39,6 +39,7 @@ const UpdateMemberInfo = () => {
 
   // Fetch member data on mount
   useEffect(() => {
+    console.log("hellow")
     axios
       .get(`/findMemberById/${id}`)
       .then((res) => setMember(res.data.user))
