@@ -45,9 +45,8 @@ const navigate = useNavigate();
     }, [navigate]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/findBlogById/${id}`)
+    axios.get(`/findBlogById/${id}`)
         .then((response)=>{
-          
             setAdd(response.data.user)
             setContent(response.data.user.content)
             

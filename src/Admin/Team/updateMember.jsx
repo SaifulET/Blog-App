@@ -57,7 +57,9 @@ const UpdateMemberInfo = () => {
       console.log(member.file.name)
 //       if (member.file) uploadData.append("file", member.file);
 // console.log(e.target.image.files)
+      console.log("ddd")
       const res = await axios.put(`/UpdateMemberInfo/${id}`, member);
+      
       toast.success(res.data.message, { position: "top-right" });
       navigate("/teams");
     } catch (error) {

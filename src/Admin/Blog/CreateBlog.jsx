@@ -50,6 +50,7 @@ const SubmitForm=async(e)=>{
     try {
       e.preventDefault();
       const response= await axios.post("/CreateBlog",add);
+      
       toast.success(response.data.message,{position:"top-right"});
       navigate("/BLogAll")
 
