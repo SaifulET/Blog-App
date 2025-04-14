@@ -4,7 +4,7 @@ import "../assets/Blog.css"
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import { useState,useEffect } from 'react';
-
+import axios from "axios";
 
 const Blog = () => {
   const [users , setUsers]=useState([])
