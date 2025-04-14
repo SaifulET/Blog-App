@@ -12,7 +12,7 @@ const ServicesSection = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
           useEffect(() => {
-              fetch("http://localhost:5000/api/findAllService")
+              fetch("/findAllService")
                 .then((res) => res.json())
                 .then((data) => {
                   setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array

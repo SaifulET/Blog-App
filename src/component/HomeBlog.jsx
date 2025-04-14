@@ -2,18 +2,21 @@
 import { Link,useNavigate } from "react-router-dom";
 import "../assets/Blog.css"
 import { useEffect,useState } from "react";
-
+import axios from "axios";
 
 const HomeBlog = () => {
   const [users , setUsers]=useState([])
-      useEffect(() => {
-          fetch("http://localhost:5000/api/findAllBlog")
-            .then((res) => res.json())
-            .then((data) => {
-              setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array
-            })
-            .catch((error) => console.error("Error fetching users:", error));
-        }, []);
+  useEffect(() => {
+    axios.get('/findAllBlog')
+      .then((res) => {
+        const data = res.data;
+        setUsers(Array.isArray(data.users) ? data.users : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching users:', error);
+      });
+  }, []);
+
     const navigate = useNavigate();
   return (
     <div className="maindiv">
