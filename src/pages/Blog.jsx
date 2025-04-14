@@ -9,14 +9,16 @@ import { useState,useEffect } from 'react';
 const Blog = () => {
   const [users , setUsers]=useState([])
   
-      useEffect(() => {
-          fetch("/findAllBlog")
-            .then((res) => res.json())
-            .then((data) => {
-              setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array
-            })
-            .catch((error) => console.error("Error fetching users:", error));
-        }, []);
+  useEffect(() => {
+    axios.get('/findAllBlog')
+      .then((res) => {
+        setUsers(Array.isArray(res.data.users) ? res.data.users : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching users:', error);
+      });
+  }, []);
+
   return (
     <div className="blog-container">
       <Navbar></Navbar>
