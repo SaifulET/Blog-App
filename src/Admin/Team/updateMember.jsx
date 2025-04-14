@@ -30,7 +30,7 @@ const UpdateMemberInfo = () => {
   // Check authentication on mount
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/home")
+      .get("/home")
       .then((res) => {
         if (res.data !== "success") navigate("/login");
       })
@@ -40,7 +40,7 @@ const UpdateMemberInfo = () => {
   // Fetch member data on mount
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/findMemberById/${id}`)
+      .get(`/findMemberById/${id}`)
       .then((res) => setMember(res.data.user))
       .catch((err) => console.error("Error fetching user:", err));
   }, [id]);
@@ -57,7 +57,7 @@ const UpdateMemberInfo = () => {
       console.log(member.file.name)
 //       if (member.file) uploadData.append("file", member.file);
 // console.log(e.target.image.files)
-      const res = await axios.put(`http://localhost:5000/api/UpdateMemberInfo/${id}`, member);
+      const res = await axios.put(`/UpdateMemberInfo/${id}`, member);
       toast.success(res.data.message, { position: "top-right" });
       navigate("/teams");
     } catch (error) {

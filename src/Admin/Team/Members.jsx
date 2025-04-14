@@ -10,7 +10,7 @@ const Members = () => {
    const navigate = useNavigate();
    useEffect(() => {
     axios
-        .get("http://localhost:5000/api/home",)
+        .get("/home",)
         .then((result) => {
             if (result.data !== "success") {
                 navigate("/login"); 
@@ -22,21 +22,22 @@ const Members = () => {
         });
 }, [navigate]);
    const [users , setUsers]=useState([])
-    useEffect(() => {
-        fetch("http://localhost:5000/api/findAllMembers")
-          .then((res) => res.json())
-          .then((data) => {
-            
-            setUsers(Array.isArray(data.data) ? data.data : []); // Ensure it's an array
-          })
-          .catch((error) => console.error("Error fetching Services:", error));
-      }, []);
+   useEffect(() => {
+    axios.get('/findAllMembers')
+      .then((res) => {
+        const data = res.data;
+        setUsers(Array.isArray(data.data) ? data.data : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching Services:', error);
+      });
+  }, []);
     
       
 
     const UserDelete=async(userID)=>{
         await axios
-        .delete("http://localhost:5000/api/DeleteMember/"+userID)
+        .delete("/DeleteMember/"+userID)
         .then((Response)=>{
           setUsers((preuser)=>preuser.filter((user)=> user._id!==userID))
           toast.success(Response.data.message,{position:'top-right'});

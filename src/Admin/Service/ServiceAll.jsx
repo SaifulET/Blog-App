@@ -10,7 +10,7 @@ const ServiceAll = () => {
    const navigate = useNavigate();
    useEffect(() => {
     axios
-        .get("http://localhost:5000/api/home",)
+        .get("/home",)
         .then((result) => {
             if (result.data !== "success") {
                 navigate("/login"); 
@@ -22,20 +22,22 @@ const ServiceAll = () => {
         });
 }, [navigate]);
    const [users , setUsers]=useState([])
-    useEffect(() => {
-        fetch("http://localhost:5000/api/findAllService")
-          .then((res) => res.json())
-          .then((data) => {
-            setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array
-          })
-          .catch((error) => console.error("Error fetching Services:", error));
-      }, []);
+   useEffect(() => {
+    axios.get('/findAllService')
+      .then((res) => {
+        const data = res.data;
+        setUsers(Array.isArray(data.users) ? data.users : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching Services:', error);
+      });
+  }, []);
     
       
 
     const UserDelete=async(userID)=>{
         await axios
-        .delete("http://localhost:5000/api/DeleteService/"+userID)
+        .delete("/DeleteService/"+userID)
         .then((Response)=>{
           setUsers((preuser)=>preuser.filter((user)=> user._id!==userID))
           toast.success(Response.data.message,{position:'top-right'});

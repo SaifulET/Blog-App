@@ -23,7 +23,7 @@ const navigate = useNavigate();
     
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/home",)
+            .get("/home",)
             .then((result) => {
                 if (result.data !== "success") {
                     navigate("/login"); 
@@ -36,7 +36,7 @@ const navigate = useNavigate();
     }, [navigate]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/findById/${id}`)
+    axios.get(`/findById/${id}`)
         .then((response)=>{
             setAdd(response.data.user)
             
@@ -47,7 +47,7 @@ const SubmitForm=async(e)=>{
     
     try {
       e.preventDefault();
-      const response= await axios.put("http://localhost:5000/api/UserUpdate/"+id,add);
+      const response= await axios.put("/UserUpdate/"+id,add);
       toast.success(response.data.message,{position:"top-right"});
       navigate("/user")
 

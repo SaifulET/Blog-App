@@ -33,7 +33,7 @@ const navigate = useNavigate();
     
   useEffect(() => {
       axios
-          .get("http://localhost:5000/api/home",)
+          .get("/home",)
           .then((result) => {
               if (result.data !== "success") {
                   navigate("/login"); 
@@ -49,7 +49,7 @@ const SubmitForm=async(e)=>{
     
     try {
       e.preventDefault();
-      const response= await axios.post("http://localhost:5000/api/CreateBlog",add);
+      const response= await axios.post("/CreateBlog",add);
       toast.success(response.data.message,{position:"top-right"});
       navigate("/BLogAll")
 

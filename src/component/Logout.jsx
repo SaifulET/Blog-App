@@ -12,7 +12,7 @@ const Logout = () => {
     
             try {
                 // Send logout request to backend to clear the cookie
-                await axios.post("http://localhost:5000/api/logout", {});
+                await axios.post("/logout", {});
                 document.cookie = "token=; path=/; max-age=0"; 
                 delete axios.defaults.headers.common["Authorization"];
                 navigate("/login"); // Redirect to login page after successful logout

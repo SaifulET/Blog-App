@@ -27,7 +27,7 @@ const Register = () => {
       
     const handleRegister = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/api/register",{"name":Name,"email":email,"password":Password})
+        axios.post("/register",{"name":Name,"email":email,"password":Password})
           .then(result=>{
             console.log(result)
             if(result.data.data=="success"){

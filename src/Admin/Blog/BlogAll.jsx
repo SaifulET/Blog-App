@@ -40,7 +40,7 @@ const BlogAll = () => {
   };
    useEffect(() => {
     axios
-        .get("http://localhost:5000/api/home",)
+        .get("/home",)
         .then((result) => {
             if (result.data !== "success") {
                 navigate("/login"); 
@@ -55,20 +55,21 @@ const BlogAll = () => {
 
    
 
-    useEffect(() => {
-        fetch("http://localhost:5000/api/findAllBlog")
-          .then((res) => res.json())
-          .then((data) => {
-            setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array
-          })
-          .catch((error) => console.error("Error fetching users:", error));
-      }, []);
+   useEffect(() => {
+    axios.get('/findAllBlog')
+      .then((res) => {
+        setUsers(Array.isArray(res.data.users) ? res.data.users : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching users:', error);
+      });
+  }, []);
     
       
 
     const UserDelete=async(userID)=>{
         await axios
-        .delete("http://localhost:5000/api/DeleteBlog/"+userID)
+        .delete("/DeleteBlog/"+userID)
         .then((Response)=>{
           setUsers((preuser)=>preuser.filter((user)=> user._id!==userID))
           toast.success(Response.data.message,{position:'top-right'});

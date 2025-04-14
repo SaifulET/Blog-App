@@ -23,7 +23,7 @@ const Login = () => {
       };
     const handleRegister = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/api/login",{"email":email,"password":Password})
+        axios.post("/login",{"email":email,"password":Password})
           .then(result=>{
             // console.log("Response Headers:", result.headers); // ✅ Print response headers
             // console.log("Response Data:", result.data);

@@ -10,7 +10,7 @@ const User = () => {
    const navigate = useNavigate();
    useEffect(() => {
     axios
-        .get("http://localhost:5000/api/home",)
+        .get("/home",)
         .then((result) => {
             if (result.data !== "success") {
                 navigate("/login"); 
@@ -22,21 +22,22 @@ const User = () => {
         });
 }, [navigate]);
    const [users , setUsers]=useState([])
-    useEffect(() => {
-        fetch("http://localhost:5000/api/findAll")
-          .then((res) => res.json())
-          .then((data) => {
-            console.log("API Response:", data.users);
-            setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array
-          })
-          .catch((error) => console.error("Error fetching users:", error));
-      }, []);
+   useEffect(() => {
+    axios.get('/findAll')
+      .then((res) => {
+        console.log('API Response:', res.data.users);
+        setUsers(Array.isArray(res.data.users) ? res.data.users : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching users:', error);
+      });
+  }, []);
     
       
 
     const UserDelete=async(userID)=>{
         await axios
-        .delete("http://localhost:5000/api/UserDelete/"+userID)
+        .delete("/UserDelete/"+userID)
         .then((Response)=>{
           setUsers((preuser)=>preuser.filter((user)=> user._id!==userID))
           toast.success(Response.data.message,{position:'top-right'});

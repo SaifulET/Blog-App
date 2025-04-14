@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 const TeamSection = () => {
   const [users,setUsers]=useState([]);
   useEffect(()=>{
-    fetch("http://localhost:5000/api/findAllMembers")
+    fetch("/findAllMembers")
           .then((res) => res.json())
           .then((data) => {
             

@@ -2,6 +2,7 @@ import {useState, useEffect } from "react";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 import "../assets/service.css";
+import axios from "axios";
 
 
 const ServicesSection = () => {
@@ -11,14 +12,16 @@ const ServicesSection = () => {
   const handleToggle = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
-          useEffect(() => {
-              fetch("/findAllService")
-                .then((res) => res.json())
-                .then((data) => {
-                  setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array
-                })
-                .catch((error) => console.error("Error fetching Services:", error));
-            }, []);
+  useEffect(() => {
+    axios.get('/findAllService')
+      .then((res) => {
+        const data = res.data;
+        setUsers(Array.isArray(data.users) ? data.users : []);
+      })
+      .catch((error) => {
+        console.error('Error fetching Services:', error);
+      });
+  }, []);
     return (
       <div>
         <Navbar></Navbar>

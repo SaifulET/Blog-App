@@ -17,7 +17,7 @@ const BlogDetails = () => {
        
     
         useEffect(() => {
-          axios.get(`http://localhost:5000/api/findBlogById/${id}`)
+          axios.get(`/findBlogById/${id}`)
           .then((response)=>{
               
               setUsers(response.data.user)

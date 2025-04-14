@@ -45,7 +45,7 @@ const AddMember= () => {
     uploadData.append("file", formData.image);
     console.log(formData.image,uploadData);
     try {
-      const response= await axios.post("http://localhost:5000/api/CreateMember", uploadData);
+      const response= await axios.post("/CreateMember", uploadData);
     toast.success(response.data.message,{position:"top-right"});
     navigate("/Teams")
 

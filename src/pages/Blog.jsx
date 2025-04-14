@@ -10,7 +10,7 @@ const Blog = () => {
   const [users , setUsers]=useState([])
   
       useEffect(() => {
-          fetch("http://localhost:5000/api/findAllBlog")
+          fetch("/findAllBlog")
             .then((res) => res.json())
             .then((data) => {
               setUsers(Array.isArray(data.users) ? data.users : []); // Ensure it's an array
