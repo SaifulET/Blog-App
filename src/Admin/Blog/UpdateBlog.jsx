@@ -49,7 +49,7 @@ const navigate = useNavigate();
         .then((response)=>{
             setAdd(response.data.user)
             setContent(response.data.user.content)
-            
+            console.log(response)
             
         })
         .catch(error => console.error("Error fetching user:", error));

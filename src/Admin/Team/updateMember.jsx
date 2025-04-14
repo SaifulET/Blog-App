@@ -59,7 +59,7 @@ const UpdateMemberInfo = () => {
 // console.log(e.target.image.files)
       console.log("ddd")
       const res = await axios.put(`/UpdateMemberInfo/${id}`, member);
-      
+      console.log(res)
       toast.success(res.data.message, { position: "top-right" });
       navigate("/teams");
     } catch (error) {

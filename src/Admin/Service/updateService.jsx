@@ -39,9 +39,10 @@ const navigate = useNavigate();
     }, [navigate]);
 
   useEffect(() => {
+
     axios.get(`/findServiceById/${id}`)
         .then((response)=>{
-            
+            console.log(response)
             setAdd(response.data.user)
             
         })
@@ -51,7 +52,9 @@ const SubmitForm=async(e)=>{
     
     try {
       e.preventDefault();
+      console.log("aaa")
       const response= await axios.put("/UpdateService/"+id,add);
+      console.log(response);
       toast.success(response.data.message,{position:"top-right"});
       navigate("/serviceAll")
 
