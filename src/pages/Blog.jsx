@@ -23,7 +23,7 @@ const Blog = () => {
     <div className="blog-container">
       <Navbar></Navbar>
       <h2 className="blog-title"> Blogs </h2>
-      <div className="blog-grid">
+      <div className="blog-flex">
         {users.map((blog) => (
           <Link key={blog._id} to={`/blog/${blog._id}`} className="blog-card">
             <img src={blog.thumbnail} alt={blog.title} className="blog-image" />

@@ -31,3 +31,29 @@
     font-weight: bold;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
 }
+
+
+@media screen and (max-width: 768px) {
+    .addUser {
+      width: 90%; /* Expand form width on small screens */
+      padding: 20px; /* Less padding for smaller screens */
+      margin: 30px auto; /* Adjust vertical margin */
+      box-shadow: none; /* Optional: remove shadow on mobile for simplicity */
+    }
+  
+    .addUserForm .InputGroup input,
+    .addUserForm .InputGroup button {
+      width: 100%; /* Full width inputs/buttons */
+      font-size: 1rem;
+    }
+  
+    .addUserForm .InputGroup label {
+      font-size: 0.95rem;
+    }
+  
+    .addUser h3 {
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+  }
+  
