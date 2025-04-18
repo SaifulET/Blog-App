@@ -4,14 +4,16 @@ import "../assets/Blog.css"; // Styling for blog details
 import Navbar from "./Navbar";
 import { useState,useEffect } from 'react';
 import axios from "axios"
+import Loader from "./loader";
 
 
 
 
 
 const BlogDetails = () => {
-  const {id} =useParams();
 
+  const {id} =useParams();
+  const [loading,setLoading]=useState(true);
   const [users , setUsers]=useState([])
     
        
@@ -19,7 +21,7 @@ const BlogDetails = () => {
         useEffect(() => {
           axios.get(`/findBlogById/${id}`)
           .then((response)=>{
-              
+              setLoading(false);
               setUsers(response.data.user)
               
           })
@@ -40,12 +42,12 @@ const BlogDetails = () => {
     
     <div className="blog-details">
         <Navbar></Navbar>
-      <div className="container">
+        {loading?<Loader/>:<div className="container">
       <h2>{users.title}</h2>
       <img src={users.thumbnail} alt={users.thumbnail} className="blog-full-image" />
       <p className="text-start"><div dangerouslySetInnerHTML={{ __html: users.content }} /></p>
       <Link to="/blog" className="back-btn">← Back to Blogs</Link>
-      </div>
+      </div>}
     </div>
   );
 };

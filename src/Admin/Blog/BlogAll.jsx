@@ -6,6 +6,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavbar from '../AdminNavbar';
  import Sticky from 'react-sticky-el';
+import Loader from '../../component/loader';
 
  const ExpandableText = ({ text, limit }) => {
   const [expanded, setExpanded] = useState(false);
@@ -33,6 +34,7 @@ import AdminNavbar from '../AdminNavbar';
 
 
 const BlogAll = () => {
+  const [loading,setLoading]=useState(true);
    const navigate = useNavigate();
    const extractTextFromHtml = (html) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -58,6 +60,7 @@ const BlogAll = () => {
    useEffect(() => {
     axios.get('/findAllBlog')
       .then((res) => {
+        setLoading(false);
         setUsers(Array.isArray(res.data.users) ? res.data.users : []);
       })
       .catch((error) => {
@@ -101,7 +104,7 @@ const BlogAll = () => {
                       
                   </tr>
               </thead>
-              <tbody>
+              {loading?<Loader/>:<tbody>
               {users.map((user,index) => 
               (
           <tr key={user._id }>
@@ -125,7 +128,7 @@ const BlogAll = () => {
 
              
                   
-              </tbody>
+              </tbody>}
           </table>
             )}
         </div>

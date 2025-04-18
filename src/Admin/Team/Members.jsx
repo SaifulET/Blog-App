@@ -6,7 +6,9 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavbar from '../AdminNavbar';
 import Sticky from 'react-sticky-el';
+import Loader from './../../component/loader';
 const Members = () => {
+  const [loading,setLoading]=useState(true);
    const navigate = useNavigate();
    useEffect(() => {
     axios
@@ -25,6 +27,7 @@ const Members = () => {
    useEffect(() => {
     axios.get('/findAllMembers')
       .then((res) => {
+        setLoading(false)
         const data = res.data;
         setUsers(Array.isArray(data.data) ? data.data : []);
       })
@@ -57,7 +60,7 @@ const Members = () => {
                 <h3>No Team and Member At all </h3>
                 <p>Add New Member</p>
             </div>):(
-              <table className="table table-bordered">
+            <table className="table table-bordered">
               <thead>
                   <tr>
                       <th>SL no.</th>
@@ -69,7 +72,7 @@ const Members = () => {
                       
                   </tr>
               </thead>
-              <tbody>
+              {loading?<Loader/>:<tbody>
               {users.map((user,index) => 
               (
           <tr key={user._id }>
@@ -94,7 +97,7 @@ const Members = () => {
 
              
                   
-              </tbody>
+              </tbody>}
           </table>
             )}
         </div>

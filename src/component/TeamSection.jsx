@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Loader from "./loader";
 
 
 
 
 const TeamSection = () => {
   const [users,setUsers]=useState([]);
+  const [loading,setLoading]=useState(true);
   
   useEffect(() => {
     axios.get('/findAllMembers')
       .then((res) => {
+        setLoading(false);
         setUsers(Array.isArray(res.data.data) ? res.data.data : []);
       })
       .catch((error) => {
@@ -20,7 +23,7 @@ const TeamSection = () => {
       <section className="py-5" style={{ background: "linear-gradient(to bottom, #6c757d 50%, #ffffff 50%)" }}>
         <div className="container text-center">
           <h2 className="mb-4 text-white">Meet Our Team</h2>
-          <div className="row justify-content-center">
+          {loading?<Loader/>:<div className="row justify-content-center">
             {users.map((member, index) => (
               <div key={index} className="col-md-3 mb-4 text-center position-relative">
                 <img 
@@ -35,7 +38,7 @@ const TeamSection = () => {
                 <p className="text-muted small">{member.des}</p>
               </div>
             ))}
-          </div>
+          </div>}
         </div>
       </section>
     );

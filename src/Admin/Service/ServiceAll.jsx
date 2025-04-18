@@ -6,7 +6,9 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavbar from '../AdminNavbar';
 import Sticky from 'react-sticky-el';
+import Loader from '../../component/loader';
 const ServiceAll = () => {
+  const [loading,setLoading]=useState(true);
    const navigate = useNavigate();
    useEffect(() => {
     axios
@@ -26,6 +28,7 @@ const ServiceAll = () => {
     axios.get('/findAllService')
       .then((res) => {
         const data = res.data;
+        setLoading(false);
         setUsers(Array.isArray(data.users) ? data.users : []);
       })
       .catch((error) => {
@@ -68,7 +71,7 @@ const ServiceAll = () => {
                       
                   </tr>
               </thead>
-              <tbody>
+              {loading?<Loader/>:<tbody>
               {users.map((user,index) => 
               (
           <tr key={user._id }>
@@ -82,11 +85,8 @@ const ServiceAll = () => {
               <button type="button"onClick={()=>UserDelete(user._id)} className='btn btn-danger'><i className="fa-solid fa-trash"></i></button>
             </td>
           </tr>
-        ))}
-
-             
-                  
-              </tbody>
+        ))}      
+            </tbody>}
           </table>
             )}
         </div>

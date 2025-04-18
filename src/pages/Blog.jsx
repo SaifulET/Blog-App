@@ -5,13 +5,15 @@ import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import { useState,useEffect } from 'react';
 import axios from "axios";
+import Loader from "../component/loader";
 
 const Blog = () => {
   const [users , setUsers]=useState([])
-  
+  const [loading,setLoading]=useState(true)
   useEffect(() => {
     axios.get('/findAllBlog')
       .then((res) => {
+        setLoading(false)
         setUsers(Array.isArray(res.data.users) ? res.data.users : []);
       })
       .catch((error) => {
@@ -22,7 +24,9 @@ const Blog = () => {
   return (
     <div className="blog-container">
       <Navbar></Navbar>
+      
       <h2 className="blog-title"> Blogs </h2>
+      {loading?<Loader/>:
       <div className="blog-flex">
         {users.map((blog) => (
           <Link key={blog._id} to={`/blog/${blog._id}`} className="blog-card">
@@ -31,7 +35,7 @@ const Blog = () => {
             <p className="blog-description">{blog.description}</p>
           </Link>
         ))}
-      </div>
+      </div>}
       <Footer></Footer>
     </div>
   );

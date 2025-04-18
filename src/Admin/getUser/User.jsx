@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavbar from '../AdminNavbar';
 import Sticky from 'react-sticky-el';
+import Loader from '../../component/loader';
 
 const User = () => {
   const navigate = useNavigate();
@@ -23,10 +24,11 @@ const User = () => {
   }, [navigate]);
 
   const [users, setUsers] = useState([]);
-
+  const [loading,setLoading]=useState(true);
   useEffect(() => {
     axios.get('/findAll')
       .then((res) => {
+        setLoading(false);
         console.log('API Response:', res.data.users);
         setUsers(Array.isArray(res.data.users) ? res.data.users : []);
       })
@@ -47,7 +49,7 @@ const User = () => {
 
   return (
     <div className="dflex">
-      <Sticky><AdminNavbar /></Sticky>
+      <Sticky><AdminNavbar/></Sticky>
       <div className="userTable">
         {users.length === 0 ? (
           <div className="noUser">
@@ -65,7 +67,7 @@ const User = () => {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            {loading?<Loader/>:<tbody>
               {users.map((user, index) => (
                 <tr key={user._id}>
                   <td data-label="SL no.">{index + 1}</td>
@@ -79,7 +81,7 @@ const User = () => {
                   </td>
                 </tr>
               ))}
-            </tbody>
+            </tbody>}
           </table>
         )}
       </div>

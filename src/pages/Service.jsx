@@ -3,9 +3,11 @@ import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 import "../assets/service.css";
 import axios from "axios";
+import Loader from "../component/loader";
 
 
 const ServicesSection = () => {
+      const [loading,setLoading]=useState(true);
       const [users , setUsers]=useState([])
       const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -16,6 +18,7 @@ const ServicesSection = () => {
     axios.get('/findAllService')
       .then((res) => {
         const data = res.data;
+        setLoading(false);
         setUsers(Array.isArray(data.users) ? data.users : []);
       })
       .catch((error) => {
@@ -28,7 +31,7 @@ const ServicesSection = () => {
         <section className="py-5 text-center text-white" style={{ background: "url('https://th.bing.com/th/id/R.2647183a8bd718d8a386bcb3d78e5a1f?rik=pPgkreYpHBumEA&pid=ImgRaw&r=0') center/cover no-repeat" }}>
         <div className="container">
           <h2 className="mb-4">Our Services</h2>
-          <div className="row">
+          {loading?<Loader/>:<div className="row">
       {users.map((service, index) => {
         const isExpanded = expandedIndex === index;
 
@@ -63,7 +66,7 @@ const ServicesSection = () => {
           </div>
         );
       })}
-    </div>
+    </div>}
         </div>
       </section>
       <Footer></Footer>
