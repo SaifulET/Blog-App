@@ -54,20 +54,24 @@
     }
   
     .userTable {
-      width: 95% !important;
+      /* width: 95% !important; */
       /* text-align: center !important; */
       padding: 20px !important;
-      box-shadow: 1px 1px 8px rgba(244, 244, 244, 1)!important
+      box-shadow: none !important;
 
     }
   
     .userTable table {
       border: 0;
+      z-index: -1;
       /* text-align: center !important; */
     }
   
     .userTable thead {
       display: none;
+    }
+    .userTable tbody{
+      z-index: -1;
     }
   
     .userTable tr {
@@ -75,11 +79,13 @@
       margin-bottom: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
+      z-index: 1 !important;
       padding: 10px;
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     }
   
     .userTable td {
+      z-index: 1 !important;
       display: flex;
       justify-content: space-between;
       padding: 10px 5px;

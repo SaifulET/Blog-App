@@ -46,6 +46,7 @@
   @media (max-width: 768px) {
     .adminNav {
       width: 100%;
+      z-index: 0 !important;
     }
   
     .hamburger {
