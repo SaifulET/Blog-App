@@ -28,7 +28,13 @@ const ServicesSection = () => {
     return (
       <div>
         <Navbar></Navbar>
-        <section className="py-5 text-center text-white" style={{ background: "url('https://th.bing.com/th/id/R.2647183a8bd718d8a386bcb3d78e5a1f?rik=pPgkreYpHBumEA&pid=ImgRaw&r=0') center/cover no-repeat" }}>
+        
+
+      <div className="position-relative w-100 vh-100 overflow-hidden">
+      <div className="animated-bg"></div>
+
+      <div className="position-relative text-white d-flex justify-content-center align-items-center vh-100">
+        <section className="py-5 text-center text-white " >
         <div className="container">
           <h2 className="mb-4">Our Services</h2>
           {loading?<Loader/>:<div className="row">
@@ -69,6 +75,9 @@ const ServicesSection = () => {
     </div>}
         </div>
       </section>
+      </div>
+    </div>
+
       <Footer></Footer>
       </div>
     );

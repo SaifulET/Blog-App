@@ -7,6 +7,6 @@ axios.defaults.baseURL = 'https://blog-app-backend-indol.vercel.app/api';
 // axios.defaults.baseURL = 'http://localhost:5000/api';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <App/>
   </StrictMode>,
 )
