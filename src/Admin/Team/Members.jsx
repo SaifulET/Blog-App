@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import { useNavigate} from "react-router-dom";
-// import './User.css'
+import '../getUser/User.css'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
