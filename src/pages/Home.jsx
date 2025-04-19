@@ -16,8 +16,7 @@ const Home = () => {
           
 
             <HomeBlog></HomeBlog>
-            
-            <Skeleton></Skeleton>
+
 
             <VideoPlayer></VideoPlayer>
 
