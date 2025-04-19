@@ -35,7 +35,6 @@ const Blog = () => {
       <Navbar></Navbar>
       
       <h2 className="blog-title"> Blogs </h2>
-      <div className="blog-flex-blog">{elements}</div>
       {loading?<div className="blog-flex-blog">{elements}</div>:
       <div className=" blog-flex-blog">
         {users.map((blog,i) => (
