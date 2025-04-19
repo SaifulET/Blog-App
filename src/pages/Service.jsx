@@ -3,11 +3,34 @@ import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 import "../assets/service.css";
 import axios from "axios";
-import Loader from "../component/loader";
+import Skeleton from "../component/Skeleton";
 
 
 const ServicesSection = () => {
-      const [loading,setLoading]=useState(true);
+  const elements = [];
+
+  for (let i = 0; i < 6; i++) {
+    elements.push(
+      <div className="col-md-4 mb-4">
+            <div
+              className="p-4 border-0 rounded card-hover text-white h-100"
+              style={{
+                background: "rgba(151, 114, 114, 0.5)",
+                cursor: "pointer",
+                overflow: "hidden",
+              }}
+              
+            >
+              <Skeleton></Skeleton>
+
+              
+            </div>
+          </div>
+    );
+  }
+
+
+      const [loading, setLoading]=useState(true);
       const [users , setUsers]=useState([])
       const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -30,14 +53,14 @@ const ServicesSection = () => {
         <Navbar></Navbar>
         
 
-      <div className="position-relative w-100 vh-100 overflow-hidden">
+      <div className="position-relative vh-200">
       <div className="animated-bg"></div>
 
-      <div className="position-relative text-white d-flex justify-content-center align-items-center vh-100">
+      <div className="position-relative  text-white d-flex justify-content-center align-items-center">
         <section className="py-5 text-center text-white " >
         <div className="container">
           <h2 className="mb-4">Our Services</h2>
-          {loading?<Loader/>:<div className="row">
+          {loading?<div className="row">{elements}</div>:<div className="row">
       {users.map((service, index) => {
         const isExpanded = expandedIndex === index;
 
@@ -67,7 +90,7 @@ const ServicesSection = () => {
 
               {!isExpanded && (
                 <span className="text-warning mt-2 d-block">...Read more</span>
-              )}
+              )} 
             </div>
           </div>
         );
@@ -77,7 +100,6 @@ const ServicesSection = () => {
       </section>
       </div>
     </div>
-
       <Footer></Footer>
       </div>
     );

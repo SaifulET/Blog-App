@@ -3,6 +3,7 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
+import "../assets/Contact.css"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -50,13 +51,10 @@ export default function ContactForm() {
   return (
     <div>
         <Navbar></Navbar>
-        <div className="d-flex justify-content-center align-items-center min-vh-100 p-4" style={{ 
-      backgroundImage: "url('https://th.bing.com/th/id/R.263b7e836625ae25c87cbd037cd63c0b?rik=u0rkKfdkcDF%2bcQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fd%2fc%2f0%2f1090033-new-cool-tech-backgrounds-1920x1080.jpg&ehk=1fwJqrxTUu99j%2fJyLreCgM3iGweARAOKzas5whaHa0Y%3d&risl=&pid=ImgRaw&r=0')",
-      backgroundSize: "cover",
-      backgroundPosition: "center" ,
+        <div className="d-flex bg-img justify-content-center align-items-center min-vh-100 p-4" style={{ 
     }}>
         
-      <div className="card shadow-lg" style={{ width: "100%", maxWidth: "500px",backgroundColor:"rgb(13, 108, 132)" }}>
+      <div className="card shadow-lg position-relative" style={{ width: "100%", maxWidth: "500px",backgroundColor:"rgb(13, 108, 132)" }}>
         <div className="card-body">
           <h2 className="text-center mb-4" style={{color:"rgb(5, 8, 60)"}}>Contact Us</h2>
           <form onSubmit={handleSubmit}>

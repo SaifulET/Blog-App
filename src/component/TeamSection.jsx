@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./loader";
+import { motion } from "framer-motion";
 
 
 
@@ -26,12 +27,18 @@ const TeamSection = () => {
           {loading?<Loader/>:<div className="row justify-content-center">
             {users.map((member, index) => (
               <div key={index} className="col-md-3 mb-4 text-center position-relative">
-                <img 
+                <motion.div
+                  
+                  initial={{scale: 0.5, opacity: 0 }}
+                  whileInView={{ x: 0, y: 0, opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  viewport={{ once: true}}
+                ><img 
                   src={member.image} 
                   alt={member.name} 
                   className="rounded-circle border position-relative" 
                   style={{ width: "120px", height: "120px", borderWidth: "4px", borderColor: "#fff", top: "30px" }} 
-                />
+                /></motion.div>
                 <h5 className="fw-bold mt-4 position-relative"
                 style={{ top: "10px" }} >{member.name}</h5>
                 <p className="text-muted">{member.role}</p>
