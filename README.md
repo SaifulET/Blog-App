@@ -1,4 +1,11 @@
-# React + Vite
+
+netlify link
+https://blogsiteforall.netlify.app/
+versel link
+https://blog-app-backend-indol.vercel.app/api
+login url https://blogsiteforall.netlify.app/login 
+gmail: saiful@gmail.com
+pass:123456
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
