@@ -237,9 +237,20 @@ Blog Container
 .see-more-btn:hover {
   background: #218838;
 }
+@media (max-width:1450px){
+  .blog-flex{
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap:8px !important
+  }
+}
 
 /* Responsive tweaks */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .blog-flex-blog,.blog-flex{
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap:8px !important
+
+  }
   .blog-title {
     font-size: 1.5rem;
   }
@@ -254,18 +265,18 @@ Blog Container
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 780px) {
   .blog-image {
     height: 140px;
   }
  
   .blog-flex-blog,.blog-flex{
     grid-template-columns: repeat(2, 1fr) !important;
-    gap:8px !important
+    gap:5px !important
 
   }
   .blog-card{
-    width:210px !important;
+    width:200px !important;
   }
 
   .blog-heading {

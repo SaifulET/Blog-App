@@ -9,10 +9,10 @@ import Skeleton from "./Skeleton";
 
 
 const animations = [
-  { x: -100, opacity: 0 },  // slide from left
-  { y: -100, opacity: 0 },  // slide from top
-  { x: 100, opacity: 0 },   // slide from right
-  { y: 100, opacity: 0 },   // slide from bottom
+  { x: -50, opacity: 0 },  // slide from left
+  { y: -50, opacity: 0 },  // slide from top
+  { x: 50, opacity: 0 },   // slide from right
+  { y: -25, opacity: 0 },   // slide from bottom
   { scale: 0.5, opacity: 0 }, // scale in
   // { rotate: -45, opacity: 0 } // rotate in
   { x:100, opacity: 0 } // rotate in

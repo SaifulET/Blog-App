@@ -9,52 +9,36 @@
   font-weight: bold;
 }
   
-  .video-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 20px;
-  }
+.video-grid {
+  display: grid;
+  gap: 24px;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Responsive Video Card */
+.video-card {
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background-color: #111;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+ @media (max-width:1235px) {
+  .video-grid{
+    grid-template-columns: repeat(auto-fit, minmax(240px, 2fr))!important;
   
-  /* Responsive Video Card */
-  .video-card {
-    flex: 1 1 300px; /* Minimum 300px, will grow */
-    max-width: 100%;
-    aspect-ratio: 16 / 12;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    background-color: #111;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
-  .video-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+ }
+ @media (max-width:1450px) and (min-width:1024px){
+  .video-container{
+    margin-top:250px !important;
   }
-  
-  /* ReactPlayer container */
-  .video-thumb {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 16px;
-  }
-  
-  /* Video Title Overlay */
-  .video-title {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0, 0, 0, 0.65);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 6px 10px;
-    border-radius: 6px;
-    backdrop-filter: blur(4px);
-    pointer-events: none;
-  }
-  
+ }
